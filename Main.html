@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KVI Bots</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="fav.png">
+  <style>
+/* CSS Styles */
+body {
+  background-color: #222; /* Dark background */
+  color: #eee;
+  margin: 0;
+  padding: 20px;
+  font-family: monospace;
+  animation: background-shift 8s ease-in-out infinite;
+}
+
+@keyframes background-shift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+h1,
+h2,
+h3 {
+  color: #2196F3; /* Green to light blue gradient text */
+  text-align: center;
+  animation: text-pulse 1s ease-in-out infinite alternate;
+}
+
+h1,
+h2,
+h3::hower {
+  color: linear-gradient(to right, #333, #444)
+}
+
+@keyframes text-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+table {
+  background: linear-gradient(to right, #4CAF50, #2196F3); /* Green to light blue gradient */
+  width: 100%;
+  border-collapse: collapse;
+  color: #eee; /* Light colored text */
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px;
+  color: #ddd; /* Slightly lighter text for readability */
+}
+
+tr:nth-child(even) {
+  background-color: #333; /* Darker shade for even rows */
+}
+
+.fa-check {
+  color: #00cccc; /* Light blue checkmark icon */
+}
+
+.form-container {
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: linear-gradient(to right, #4CAF50, #2196F3); /* Darker green to darker blue gradient */
+  animation: form-pop 0.5s ease-in-out;
+}
+
+.form-container::hower {
+  background: linear-gradient(to right, #6fff74, #68bafd)
+}
+
+@keyframes form-pop {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 95%;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #f2f2f2; /* Light gray background for inputs */
+  color: #333; /* Darker text for better contrast */
+  transition: 0.3s ease-in-out all; /* Added transition for hover effect */
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover {
+  background-color: #eee; /* Lighter gray background on hover */
+}
+
+textarea {
+  width: 95%;
+  height: 100px;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #f2f2f2; /* Light gray background for textarea */
+  color: #333; /* Darker text for better contrast */
+  transition: 0.3s ease-in-out all; /* Added transition for hover effect */
+}
+
+textarea:hover {
+  background-color: #eee; /* Lighter gray background on hover */
+}
+
+.btn {
+  background-color: #00cccc; /* Light blue button */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all; /* Added transition for hover effect */
+}
+
+.btn:hover {
+  background-color: #2196f3; /* Darker blue on hover */
+}
+
+.footer {
+  text-align: center;
+}
+/* CSS Styles */
+/* ... existing styles ... */
+
+.projects-container {
+  display: flex; /* Arrange project items horizontally */
+  flex-wrap: wrap; /* Allow items to wrap to multiple lines */
+  justify-content: space-around; /* Distribute items evenly with some space */
+  margin: 20px auto; /* Add some margin for better spacing */
+}
+
+.project-item {
+  width: 25%; /* Set card width (adjust as needed) */
+  height: 225px;
+  background-color: #333; /* Darker background for cards */
+  color: #eee; /* Light colored text for cards */
+  padding: 15px;
+  border-radius: 5px; /* Rounded corners for cards */
+  margin: 10px; /* Add some margin between cards */
+  text-align: center; /* Center text within cards */
+  position: relative; /* Needed for button positioning */
+}
+
+.project-item img {
+  width: 100px; /* Set image width */
+  height: 100px; /* Set image height */
+  object-fit: cover; /* Crop image to fit within dimensions */
+  border-radius: 50%; /* Make image circular */
+  margin-bottom: 10px; /* Add some space below image */
+  border: 3px solid; /* Set a solid border */
+  border-image: linear-gradient(to right, #4CAF50, #2196F3); /* Apply linear gradient border */
+}
+
+
+.project-item h3 {
+  margin-bottom: 5px; /* Add some space below title */
+}
+
+.project-item button {
+  background-color: #00cccc; /* Light blue button */
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  position: absolute; /* Position button within card */
+  bottom: 10px; /* Place button at the bottom */
+  left: 50%; /* Center button horizontally */
+  transform: translateX(-50%); /* Offset button to compensate for centering */
+}
+
+.project-item button:hover {
+  background-color: #2196f3; /* Darker blue on hover */
+}
+
+/* Navigation Bar Styles */
+
+/* Navigation Bar Styles */
+
+nav {
+  display: flex; /* Arrange links horizontally */
+  list-style: none; /* Remove default bullet points */
+  margin: 0; /* Remove default margin */
+  padding: 10px 20px; /* Add some padding inside the nav */
+  background-color: #222; /* Set background color (adjust as needed) */
+  color: #eee; /* Set text color (adjust as needed) */
+  justify-content: center; /* Center navigation items horizontally */
+}
+
+nav a {
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit text color from nav element */
+  font-weight: bold; /* Add some boldness to links */
+  transition: all 0.3s ease-in-out; /* Add smooth transition for hover effects */
+  padding: 10px; /* Add padding between links */
+}
+
+nav a:hover {
+  color: #fff; /* Lighten text color on hover (adjust as needed) */
+}
+  </style>
+</head>
+
+<body>
+  <h1>Create Your Custom Telegram Bot with KVI Bots</h1>
+  <nav>
+    <a href="#pricing">Pricing Plans</a>
+    <a href="#why">Why Us?</a>
+    <a href="#projects">Our Projects</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+  <section id="pricing">
+    <h2>Our Pricing Plans</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Simple Bot (20$)</th>
+          <th>Default Bot (25$)</th>
+          <th>Advanced Bot (40$)</th>
+          <th>Premium Bot (100$)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>API Integration</td>
+          <td><i class="fas fa-times"></i></i></td>
+          <td><i class="fas fa-check"></i></i></td>
+          <td><i class="fas fa-check"></i></i></td>
+          <td><i class="fas fa-check"></i></i></td>
+        </tr>
+        <tr>
+          <td>Inline Mode</td>
+          <td><i class="fas fa-check"></i></i></td>
+          <td><i class="fas fa-check"></i></i></td>
+          <td><i class="fas fa-check"></i></i></td>
+          <td><i class="fas fa-check"></i></i></td>
+        </tr>
+        <tr>
+          <td>Inline Buttons</td>
+          <td><i class="fas fa-times"></i></i></td>
+          <td><i class="fas fa-times"></i></i></td>
+          <td><i class="fas fa-check"></i></i></td>
+          <td><i class="fas fa-check"></i></i></td>
+        </tr>
+        <tr>
+          <td>Keyboard Buttons</td>
+          <td><i class="fas fa-times"></i></i></td>
+          <td><i class="fas fa-times"></i></i></td>
+          <td><i class="fas fa-times"></i></i></td>
+          <td><i class="fas fa-check"></i></i></td>
+        </tr>
+        <tr>
+          <td>AI</td>
+          <td><i class="fas fa-times"></i></i></td>
+          <td><i class="fas fa-times"></i></i></td>
+          <td><i class="fas fa-times"></i></i></td>
+          <td><i class="fas fa-check"></i></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="why">
+    <h2>Why Choose Us?</h2>
+    <p>Here are some reasons why you should choose us to create your custom Telegram bot:</p>
+    <ul>
+      <li>Experienced developers: Our team of developers has extensive experience in creating Telegram bots of all complexities. </li>
+      <li>Competitive prices: We offer competitive prices for our bot creation services. </li>
+      <li>Fast turnaround times: We can complete your bot project quickly and efficiently.</li>
+      <li>Excellent customer support: We provide excellent customer support to ensure that you are satisfied with your bot. </li>
+      <li>Custom solutions: We tailor our bot creations to perfectly fit your specific needs. </li>
+      <li>Proven track record: Our successful projects and client testimonials speak for themselves.</li>
+    </ul>
+  </section>
+  <section id="projects">
+    <h2>Our Projects</h2>
+
+    <p>Here are some of our recently completed Telegram bot projects:</p>
+    
+    <div class="projects-container">
+      <div class="project-item">
+        <img src="image1.jpg" alt="Project 1 Image">
+        <h3>KVIGPT Bot</h3>
+        <p>AI-powered telegram bot with a lot of incredible image generation and text generation tools.</p>
+        <button><a href="https://t.me/kvigpt_bot" class="project-button">See on Telegram</a></button>
+      </div>
+      <div class="project-item">
+        <img src="image2.jpg" alt="Project 2 Image">
+        <h3>Best Songs of 2024 Bot</h3>
+        <p>This bot is for peoples, who want to share his song with community of channel Best Music of 2024.</p>
+        <button><a href="https://t.me/best_songs_of_2024_bot" class="project-button">See on Telegram</a></button>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section id="contact">
+    <h2>Get Started Today!</h2>
+    <form class="form-container" action="mailto:kviappsgames@gmail.com" method="post">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="company">Company Name (Optional):</label>
+      <input type="text" id="company" name="company">
+
+      <label for="description">Bot Description:</label>
+      <textarea id="description" name="description" required></textarea>
+
+      <button type="submit" class="btn">Get Your Quote</button>
+    </form>
+  </section>
+  <div class="footer">
+    &copy; <?php echo date("Y"); ?> Telegram Bot Creation Agency. All Rights Reserved.
+  </div>
+</body>
+
+</html>
